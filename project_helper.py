@@ -1,4 +1,4 @@
-import examplesmatplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import requests
 
 from ratelimit import limits, sleep_and_retry
