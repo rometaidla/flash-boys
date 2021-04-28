@@ -3,12 +3,9 @@
 ### Create conda environment:
 
 ```bash
-conda create -n flash-boys python=3.6
-pip install git+https://github.com/rometaidla/alphalens
-conda config --add channels conda-forge
-conda config --add channels intel
-conda install matplotlib numpy pandas scipy seaborn jupyter nltk ratelimit bs4 scikit-learn
+conda create -n flash-boys python=3.8 pytorch cudatoolkit=11.1 matplotlib numpy pandas scipy seaborn jupyter nltk ratelimit bs4 scikit-learn -c pytorch -c conda-forge -c intel
 conda activate flash-boys
+pip install git+https://github.com/rometaidla/alphalens
 ```
 
 ### Running
