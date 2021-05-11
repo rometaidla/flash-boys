@@ -17,8 +17,8 @@ class RobertaSentimentModel:
         self.download_label_mapping()
 
     def score(self, texts):
-        processed_texts = [self.preprocess(t) for t in texts]
-        scores = [self.extract_scores(score) for score in self.pipeline(processed_texts)]
+        processed_texts = [self.preprocess(str(t)) for t in texts]
+        scores = [self.extract_scores(score) for score in self.pipeline(processed_texts[0:500])]  # TODO: batching needed
         return scores
 
     def extract_scores(self, score):
