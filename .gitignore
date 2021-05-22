@@ -1,3 +1,7 @@
 /.ipynb_checkpoints/
 /trash/
 /plots/
+.idea/
+.local/
+__pycache__/
+.DS_Store
