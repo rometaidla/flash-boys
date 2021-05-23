@@ -12,7 +12,8 @@ def normalize_price(df):
 
 def plot(df, stocks, factors, save_figure=False):
     columns = 2
-    fig, axs = plt.subplots(3, columns, figsize=(20, 20), facecolor="white")
+    rows = len(stocks) // columns + (len(stocks) % columns > 0)
+    fig, axs = plt.subplots(rows, columns, figsize=(columns*10, rows*10), facecolor="white")
     fig.autofmt_xdate()
     axs = axs.reshape(-1)
     for i, stock in enumerate(stocks):
