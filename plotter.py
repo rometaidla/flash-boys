@@ -5,7 +5,7 @@ from sklearn import preprocessing
 
 def normalize_price(df):
     min_max_scaler = preprocessing.MinMaxScaler()
-    price = df[['Close']].values.astype(float)
+    price = df[['Price']].values.astype(float)
     df['NormPrice'] = price
     return min_max_scaler.fit_transform(price)
 
