@@ -2,8 +2,7 @@ import pandas as pd
 import yfinance as yf
 
 
-def read_stock_prices(stocks):
-    price_type = "Open"
+def read_stock_prices(stocks, price_type):
 
     results = []
     for stock in stocks:
