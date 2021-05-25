@@ -25,7 +25,9 @@ def plot_correlations(df, stocks, factors):
                 normalize_price(stock_df)
                 correlations[s_idx, f_idx] = stock_df['Sentiment'].corr(stock_df['NormPrice'])
 
-    sns.heatmap(correlations, xticklabels=factors, yticklabels=stocks, linewidths=.5, cmap="RdYlGn", annot=True);
+    # sns.heatmap(correlations, xticklabels=factors, yticklabels=stocks, linewidths=.5, cmap="RdYlGn", annot=True)
+    sns.heatmap(correlations, xticklabels=factors, yticklabels=stocks, linewidths=.5,
+                cmap=sns.blend_palette(['#6ce5e8', '#b1b3b3', '#ffbd59'], n_colors=6, as_cmap=True, input='rgb'), annot=True)
     plt.yticks(rotation=0)
     plt.title("Sentiment correlation with stock price")
 
@@ -47,7 +49,7 @@ def plot_sentiments(df, stocks, factors, save_figure=False):
 
             if f_idx == 0:  # price should be same for all factors, so just plot it once
                 ax2 = ax.twinx()
-                ax2.plot(stock_df['Date'], stock_df["Price"], color="red", label="Stock price")
+                ax2.plot(stock_df['Date'], stock_df["Price"], color="#EE959E", label="Stock price")
                 if i == 0:
                     ax2.legend()
                 if i % columns == 1:
