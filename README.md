@@ -15,5 +15,7 @@ jupyter notebook
 ```
 
 ### Notebooks:
+- alphalens: pipeline using sentiments from Twitter and Reddit
 - project_10k_sec_reports.ipynb: pipeline using SEC 10k reports
-- examples/daily_factor_synthetic_data.ipynb: example alphalens pipeline (taken from alphalens git repository) 
+- roberta-sentiment: notebook for analysising Twitter tweets using RoBERTa model
+- scapers/twitter-scraper: notebook for scraping Twitter tweets
