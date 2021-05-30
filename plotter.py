@@ -1,16 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
-from sklearn import preprocessing
 import seaborn as sns
-
-
-def normalize_price(df):
-    min_max_scaler = preprocessing.MinMaxScaler()
-    price = df[['Price']].values.astype(float)
-    df['NormPrice'] = price
-    return min_max_scaler.fit_transform(price)
-
+from prices import normalize_price
 
 def plot_correlations(df, stocks, factors):
     n_stocks = len(stocks)
@@ -27,7 +19,7 @@ def plot_correlations(df, stocks, factors):
 
     # sns.heatmap(correlations, xticklabels=factors, yticklabels=stocks, linewidths=.5, cmap="RdYlGn", annot=True)
     sns.heatmap(correlations, xticklabels=factors, yticklabels=stocks, linewidths=.5,
-                cmap=sns.blend_palette(['#6ce5e8', '#b1b3b3', '#ffbd59'], n_colors=6, as_cmap=True, input='rgb'), annot=True)
+                cmap=sns.blend_palette(['#6ce5e8', '#b1b3b3', '#EE959E'], n_colors=6, as_cmap=True, input='rgb'), annot=True)
     plt.yticks(rotation=0)
     plt.title("Sentiment correlation with stock price")
 
@@ -49,7 +41,7 @@ def plot_sentiments(df, stocks, factors, save_figure=False):
 
             if f_idx == 0:  # price should be same for all factors, so just plot it once
                 ax2 = ax.twinx()
-                ax2.plot(stock_df['Date'], stock_df["Price"], color="#EE959E", label="Stock price")
+                ax2.plot(stock_df['Date'], stock_df["Price"], color="#EE959E", label="Stock price")                #ax2.set_ylim([100.0, 160.0])
                 if i == 0:
                     ax2.legend()
                 if i % columns == 1:
